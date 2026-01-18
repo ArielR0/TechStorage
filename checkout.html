@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Compra | TechStore</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+  <header>
+    <h1 class="txt" onclick="window.location.href='index.html'" style="cursor:pointer">TechStore</h1>
+    <a href="index.html" style="color: white; text-decoration: none;">← Voltar à Loja</a>
+  </header>
+
+  <main class="checkout-container">
+    <section class="checkout-form">
+      <h2>Dados de Entrega</h2>
+      <form id="form-checkout">
+        <div class="input-group">
+          <input type="text" placeholder="Nome Completo" required>
+          <input type="email" placeholder="E-mail" required>
+        </div>
+        
+        <div class="input-group">
+          <input type="text" placeholder="CEP" id="cep" required>
+          <input type="text" placeholder="Endereço" required>
+        </div>
+
+        <div class="input-group">
+          <input type="text" placeholder="Cidade" required>
+          <input type="text" placeholder="Estado" required>
+        </div>
+
+        <h2>Pagamento</h2>
+        <div class="payment-methods">
+          <label class="method">
+            <input type="radio" name="pay" checked>
+            <span>Cartão de Crédito</span>
+          </label>
+          <label class="method">
+            <input type="radio" name="pay">
+            <span>PIX (5% OFF)</span>
+          </label>
+          <label class="method">
+            <input type="radio" name="pay">
+            <span>Boleto</span>
+          </label>
+        </div>
+        
+        <button type="submit" class="btn-finalizar-grande">CONFIRMAR PEDIDO</button>
+      </form>
+    </section>
+
+    <aside class="checkout-summary">
+      <h2>Resumo do Pedido</h2>
+      <div id="resumo-itens">
+        </div>
+      <div class="summary-total">
+        <div class="row"><span>Subtotal</span> <span id="subtotal">R$ 0,00</span></div>
+        <div class="row"><span>Frete</span> <span style="color: #28a745;">Grátis</span></div>
+        <hr>
+        <div class="row total"><span>Total</span> <span id="total-final">R$ 0,00</span></div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

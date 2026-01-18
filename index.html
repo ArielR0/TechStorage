@@ -9,122 +9,132 @@
 <body>
   <header>
     <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-
     <h1 class="txt">TechStore</h1>
     <nav class="nav">
       <a href="#">Home</a>
       <a href="#">Produtos</a>
-      <a href="#">Carrinho</a>
+      <a href="javascript:void(0)" onclick="abrirCarrinho()">Carrinho (<span id="cart-count">0</span>)</a>
     </nav>
   </header>
 
-<section class="carrossel">
-  <div class="slides" id="carrosselSlides">
-    <img src="./imgs/slide1.jpg" alt="Slide 1">
-    <img src="./imgs/slide3.png" alt="Slide 2">
-    <img src="./imgs/slide2.jpg" alt="Slide 3">
-    <img src="./imgs/slide5.jpg" alt="Slide 4">
-    <img src="./imgs/slide9.jpg" alt="Slide 5">
+  <section class="carrossel">
+    <div class="slides" id="carrosselSlides">
+      <img src="./imgs/slide1.jpg" alt="Slide 1">
+      <img src="./imgs/slide3.png" alt="Slide 2">
+      <img src="./imgs/slide2.jpg" alt="Slide 3">
+      <img src="./imgs/slide5.jpg" alt="Slide 4">
+      <img src="./imgs/slide9.jpg" alt="Slide 5">
+    </div>
+  </section>
+
+  <div id="modal-carrinho" class="modal-overlay">
+    <div class="modal-content carrinho-expandido">
+      <button class="fechar-x" onclick="fecharModal()">×</button>
+      <h2>Seu Carrinho</h2>
+      <div id="lista-itens-carrinho">
+        </div>
+      <div class="carrinho-footer">
+        <div class="total-container">
+          <span>Total:</span>
+          <span id="valor-total">R$ 0,00</span>
+        </div>
+        <div class="modal-buttons">
+          <button class="btn-continuar" onclick="fecharModal()">Continuar Comprando</button>
+          <button class="btn-checkout" onclick="irParaCheckout()">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  
-</section>
-
-
   <main class="produtos-container">
-    <!-- Produto 1 -->
     <div class="produto">
       <img src="./imgs/cll.webp" alt="Smartphone">
       <h2>Smartphone XYZ</h2>
       <p>R$ 1.200,00</p>
-      <button onclick="adicionarAoCarrinho('Smartphone XYZ')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Smartphone XYZ', 1200.00)">Adicionar ao Carrinho</button>
     </div>
 
-    <!-- Produto 2 -->
     <div class="produto">
       <img src="./imgs/note.jpg" alt="Notebook">
       <h2>Notebook ABC</h2>
       <p>R$ 3.500,00</p>
-      <button onclick="adicionarAoCarrinho('Notebook ABC')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Notebook ABC', 3500.00)">Adicionar ao Carrinho</button>
     </div>
 
-    <!-- Produto 3 -->
     <div class="produto">
       <img src="./imgs/fone.png" alt="Fone de ouvido">
       <h2>Fone de Ouvido</h2>
       <p>R$ 250,00</p>
-      <button onclick="adicionarAoCarrinho('Fone de Ouvido')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Fone de Ouvido', 250.00)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/teclado.webp" alt="teclado">
       <h2>Teclado Gamer</h2>
       <p>R$ 949,79</p>
-      <button onclick="adicionarAoCarrinho('Teclado Gamer')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Teclado Gamer', 949.79)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/mouse.webp" alt="Mouse gamer">
       <h2>Mouse Volgue</h2>
       <p>R$ 350,99</p>
-      <button onclick="adicionarAoCarrinho('Mouse Volgue')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Mouse Volgue', 350.99)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/gabinete.jpg" alt="Gabinete gamer">
       <h2>Gabinete gamer</h2>
       <p>R$ 1.500,00</p>
-      <button onclick="adicionarAoCarrinho('Gabinete gamer')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Gabinete gamer', 1500.00)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/monitor.webp" alt="Monitor">
       <h2>Monitor politivo 244hz</h2>
       <p>R$ 3.440,00</p>
-      <button onclick="adicionarAoCarrinho('Monitor politivo 244hz')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Monitor politivo 244hz', 3440.00)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/placa mãe.jfif" alt="Placa Mãe">
       <h2>Placa Mãe Gamer</h2>
       <p>R$ 5.680,00</p>
-      <button onclick="adicionarAoCarrinho('Placa Mãe Gamer')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Placa Mãe Gamer', 5680.00)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/RAM.jpg" alt="memoria RAM">
       <h2>Memoria Fury 16gb DDR5</h2>
-      <p>R$799,00</p>
-      <button onclick="adicionarAoCarrinho('Memoria Ram 16gb')">Adicionar ao Carrinho</button>
+      <p>R$ 799,00</p>
+      <button onclick="adicionarAoCarrinho('Memoria Fury 16gb DDR5', 799.00)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/placa video.webp" alt="Placa de Video">
       <h2>GeForce RTX 1650</h2>
       <p>R$ 1.000,00</p>
-      <button onclick="adicionarAoCarrinho('Placa de Video')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('GeForce RTX 1650', 1000.00)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/fans.webp" alt="Fans RGB">
       <h2>Fans ARGB</h2>
       <p>R$ 160,00</p>
-      <button onclick="adicionarAoCarrinho('Fans ARGB')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Fans ARGB', 160.00)">Adicionar ao Carrinho</button>
     </div>
 
-     <div class="produto">
+    <div class="produto">
       <img src="./imgs/mic.jpg" alt="Microfone gamer">
       <h2>Microfone gamer</h2>
       <p>R$ 480,00</p>
-      <button onclick="adicionarAoCarrinho('Microfone gamer')">Adicionar ao Carrinho</button>
+      <button onclick="adicionarAoCarrinho('Microfone gamer', 480.00)">Adicionar ao Carrinho</button>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 TechStore. Todos os direitos reservados.</p>
+    <p>&copy; 2026 TechStore. Todos os direitos reservados.</p>
   </footer>
-
-  
 
   <script src="script.js"></script>
 </body>
